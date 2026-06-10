@@ -1,0 +1,584 @@
+{
+  "upper1": {
+    "date": "2026-06-08",
+    "exercises": [
+      {
+        "name": "Desenv Smith",
+        "sr": "3×4-6",
+        "obs": "Banco 75°.\nFalha técnica nas 3.",
+        "history": [
+          {
+            "date": "2026-05-25",
+            "kg": "37.5",
+            "reps": "6x 5x 4x",
+            "note": "Falha técnica nas 3."
+          },
+          {
+            "date": "2026-06-01",
+            "kg": "37.5",
+            "reps": "6x 4x 4x",
+            "note": "Falha técnica nas 3."
+          },
+          {
+            "date": "2026-06-08",
+            "kg": "37.5",
+            "reps": "6x 6x 4x",
+            "note": "Falha técnica nas 3."
+          }
+        ]
+      },
+      {
+        "name": "Remada Curvada",
+        "sr": "2×6-8",
+        "obs": "Movimento explosivo, foco na contração upperback – 1 na reserva nas duas",
+        "history": [
+          {
+            "date": "2026-05-25",
+            "kg": "30",
+            "reps": "8x 8x",
+            "note": "1 na reserva nas duas."
+          },
+          {
+            "date": "2026-06-01",
+            "kg": "35",
+            "reps": "8x 8x",
+            "note": "1 na reserva nas duas."
+          },
+          {
+            "date": "2026-06-08",
+            "kg": "37.5",
+            "reps": "8x 8x",
+            "note": "1 na reserva nas duas."
+          }
+        ]
+      },
+      {
+        "name": "Puxador Triângulo",
+        "sr": "3×6-8",
+        "obs": "Falha técnica nas 3",
+        "history": [
+          {
+            "date": "2026-05-25",
+            "kg": "89",
+            "reps": "8x 8x 8x",
+            "note": "Falha técnica nas 3"
+          },
+          {
+            "date": "2026-06-01",
+            "kg": "90",
+            "reps": "8x 8x 7x",
+            "note": "Falha técnica nas 3"
+          },
+          {
+            "date": "2026-06-08",
+            "kg": "91",
+            "reps": "8x 8x 6x",
+            "note": "Falha técnica nas 3"
+          }
+        ]
+      },
+      {
+        "name": "Supino Reto Máquina",
+        "sr": "3×4-6",
+        "obs": "1-2 na reserva nas 3 series ",
+        "history": [
+          {
+            "date": "2026-06-08",
+            "kg": "120",
+            "reps": "6x 6x 6x ",
+            "note": "Banco no 3 - 1-2 na reserva nas 3 series "
+          },
+          {
+            "date": "2026-06-01",
+            "kg": "120",
+            "reps": "6x 6x 5x",
+            "note": "Banco no 3 - 1-2 na reserva nas 3 series "
+          },
+          {
+            "date": "2026-05-25",
+            "kg": "120",
+            "reps": "6x  5x 5x",
+            "note": "Banco no 3 - 1-2 na reserva nas 3 series "
+          },
+          {
+            "date": "2026-05-18",
+            "kg": "118",
+            "reps": "6x 6x 6x ",
+            "note": "Banco no 3 - 1-2 na reserva nas 3 series "
+          }
+        ]
+      },
+      {
+        "name": "Elevação Lateral Polia Uni",
+        "sr": "3×8-10",
+        "obs": "Falha técnica nas 3\nAltura 16 do cross.",
+        "history": [
+          {
+            "date": "2026-06-08",
+            "kg": "40",
+            "reps": "10x 10x 9x",
+            "note": "Falha técnica nas 3"
+          },
+          {
+            "date": "2026-06-01",
+            "kg": "40",
+            "reps": "10x 10x 8x",
+            "note": "Falha técnica nas 3"
+          },
+          {
+            "date": "2026-05-25",
+            "kg": "38",
+            "reps": "10x 10x 10x",
+            "note": "Falha técnica nas 3"
+          }
+        ]
+      },
+      {
+        "name": "Paralela Livre",
+        "sr": "2×4-7",
+        "obs": "Falha técnica nas 2",
+        "history": [
+          {
+            "date": "2026-06-08",
+            "kg": "45",
+            "reps": "7x 7x 7x",
+            "note": "Falha técnica nas 2"
+          },
+          {
+            "date": "2026-06-01",
+            "kg": "42",
+            "reps": "7x 7x 7x",
+            "note": "Falha técnica nas 2"
+          },
+          {
+            "date": "2026-05-25",
+            "kg": "40",
+            "reps": "7x 7x 7x",
+            "note": "Falha técnica nas 2"
+          }
+        ]
+      },
+      {
+        "name": "Rosca Direta Polia",
+        "sr": "3×8-10",
+        "obs": "Falha total na última.",
+        "history": [
+          {
+            "date": "2026-06-08",
+            "kg": "141",
+            "reps": "10x 10x 7x",
+            "note": "Última série eu quase morri."
+          },
+          {
+            "date": "2026-06-01",
+            "kg": "140",
+            "reps": "10x 10x 10x",
+            "note": "Falha total na última."
+          },
+          {
+            "date": "2026-05-25",
+            "kg": "138",
+            "reps": "10x 10x 10x",
+            "note": "Falha total na última."
+          }
+        ]
+      }
+    ]
+  },
+  "lower1": {
+    "date": "2026-06-10",
+    "exercises": [
+      {
+        "name": "Agachamento Pêndulo",
+        "sr": "2×4-6",
+        "obs": "Falha técnica nas 2",
+        "history": [
+          {
+            "date": "2026-06-09",
+            "kg": "20",
+            "reps": "6x 5x",
+            "note": "Falha técnica nas 2"
+          },
+          {
+            "date": "2026-06-02",
+            "kg": "15",
+            "reps": "6x 6x",
+            "note": "Falha técnica nas 2"
+          },
+          {
+            "date": "2026-05-26",
+            "kg": "15",
+            "reps": "6x 6x",
+            "note": "Falha técnica nas 2"
+          }
+        ]
+      },
+      {
+        "name": "Cadeira Extensora",
+        "sr": "2×5-9",
+        "obs": "Falha total nas 2.",
+        "history": [
+          {
+            "date": "2026-06-09",
+            "kg": "102.5 ",
+            "reps": "10x 10x",
+            "note": "Falha total nas 2 - Máquina preta a quarta da pantu pra cá."
+          },
+          {
+            "date": "2026-06-02",
+            "kg": "100",
+            "reps": "10x 10x",
+            "note": ""
+          },
+          {
+            "date": "2026-05-26",
+            "kg": "100",
+            "reps": "10x 9x",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "name": "Mesa Flexora",
+        "sr": "2×8-10",
+        "obs": "",
+        "history": [
+          {
+            "date": "2026-06-09",
+            "kg": "65",
+            "reps": "8x 8x",
+            "note": "Falha total nas 2"
+          },
+          {
+            "date": "2026-06-02",
+            "kg": "62.5",
+            "reps": "10x 10x",
+            "note": "Falha total nas 2"
+          },
+          {
+            "date": "2026-05-26",
+            "kg": "60",
+            "reps": "10x 10x",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "name": "Panturrilha em Pé",
+        "sr": "3×8-12",
+        "obs": "Falha técnica nas 3",
+        "history": [
+          {
+            "date": "2026-06-09",
+            "kg": "155",
+            "reps": "12x 12x 10x",
+            "note": "Falha técnica nas 3"
+          },
+          {
+            "date": "2026-06-02",
+            "kg": "150",
+            "reps": "12x 12x 12x",
+            "note": ""
+          },
+          {
+            "date": "2026-05-26",
+            "kg": "145",
+            "reps": "12x 12x 12x",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  "upper2": {
+    "date": "2026-06-10",
+    "exercises": [
+      {
+        "name": "Remada Apoio de Peito (Hammer)",
+        "sr": "2×5-9",
+        "obs": "Falha técnica na primeira; total segunda.",
+        "history": [
+          {
+            "date": "2026-06-04",
+            "kg": "107.5",
+            "reps": "9x 9x",
+            "note": "Falha técnica na primeira; total segunda."
+          },
+          {
+            "date": "2026-05-28",
+            "kg": "105",
+            "reps": "9x 9x",
+            "note": "Falha técnica na primeira; total segunda."
+          },
+          {
+            "date": "2026-05-21",
+            "kg": "105",
+            "reps": "9x 8x",
+            "note": "Falha técnica na primeira; total segunda."
+          }
+        ]
+      },
+      {
+        "name": "Remada Unilateral Foco Dorsal",
+        "sr": "2×5-9",
+        "obs": "",
+        "history": [
+          {
+            "date": "2026-06-04",
+            "kg": "76",
+            "reps": "9x 9x",
+            "note": "Falha técnica na primeira; total segunda."
+          },
+          {
+            "date": "2026-05-28",
+            "kg": "75",
+            "reps": "9x 9x",
+            "note": ""
+          },
+          {
+            "date": "2026-05-21",
+            "kg": "74",
+            "reps": "9x 9x",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "name": "Supino Inclinado Smith",
+        "sr": "3×4-6",
+        "obs": "Banco 30° - Falha técnica nas 3",
+        "history": [
+          {
+            "date": "2026-06-04",
+            "kg": "46.25",
+            "reps": "6x 6x 6x",
+            "note": "Falha técnica nas 3"
+          },
+          {
+            "date": "2026-05-28",
+            "kg": "45",
+            "reps": "6x 6x 6x",
+            "note": ""
+          },
+          {
+            "date": "2026-05-21",
+            "kg": "45",
+            "reps": "6x 6x 5x",
+            "note": ""
+          },
+          {
+            "date": "2026-05-14",
+            "kg": "45",
+            "reps": "6x 5x 4x",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "name": "Crucifixo Máquina",
+        "sr": "2×5-9",
+        "obs": "Banco 4 - Falha técnica na primeira; total segunda.",
+        "history": [
+          {
+            "date": "2026-06-04",
+            "kg": "102.5",
+            "reps": "9x 8x",
+            "note": "Falha técnica na primeira; total segunda."
+          },
+          {
+            "date": "2026-05-28",
+            "kg": "102.5",
+            "reps": "9x 8x",
+            "note": ""
+          },
+          {
+            "date": "2026-05-21",
+            "kg": "100",
+            "reps": "9x 9x",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "name": "Tríceps Francês Polia",
+        "sr": "2×8-10",
+        "obs": "Falha total na segunda",
+        "history": [
+          {
+            "date": "2026-06-04",
+            "kg": "200",
+            "reps": "10x 8x",
+            "note": "Falha total na 2ª"
+          },
+          {
+            "date": "2026-05-28",
+            "kg": "184",
+            "reps": "10x 10x",
+            "note": "Falha total na 2ª"
+          },
+          {
+            "date": "2026-05-21",
+            "kg": "184",
+            "reps": "10x 8x",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "name": "Rosca Bayesian",
+        "sr": "2×8-10",
+        "obs": "Falha total na segunda",
+        "history": [
+          {
+            "date": "2026-06-04",
+            "kg": "62",
+            "reps": "10x 10x",
+            "note": "Falha total na segunda"
+          },
+          {
+            "date": "2026-05-28",
+            "kg": "60",
+            "reps": "10x 10x",
+            "note": ""
+          },
+          {
+            "date": "2026-05-21",
+            "kg": "60",
+            "reps": "10x 9x",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  "lower2": {
+    "date": "2026-06-10",
+    "exercises": [
+      {
+        "name": "Levantamento Terra no Step",
+        "sr": "Progressão",
+        "obs": "Flutuar entre 80–95% RM\n 60 × 10x - 20kg | 100 × 6x - 40kg | 40 × 3x -  60kg | 150 × 1x - 65kg  | 160 × 2x - 70kg | 170 × 1x - 75kg",
+        "history": [
+          {
+            "date": "2026-06-05",
+            "kg": "170",
+            "reps": "1x",
+            "note": ""
+          },
+          {
+            "date": "2026-05-29",
+            "kg": "170",
+            "reps": "1x",
+            "note": ""
+          },
+          {
+            "date": "2026-05-22",
+            "kg": "160",
+            "reps": "2x",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "name": "Leg Press",
+        "sr": "3×4-6",
+        "obs": "Falha técnica nas 3",
+        "history": [
+          {
+            "date": "2026-06-05",
+            "kg": "320",
+            "reps": "6x 6x 6x",
+            "note": "Falha técnica nas 3"
+          },
+          {
+            "date": "2026-05-29",
+            "kg": "320",
+            "reps": "6x 5x 4x ",
+            "note": ""
+          },
+          {
+            "date": "2026-05-22",
+            "kg": "280",
+            "reps": "6x 6x 6x",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "name": "Cadeira Flexora",
+        "sr": "3×6-8",
+        "obs": "Falha técnica nas 3",
+        "history": [
+          {
+            "date": "2026-06-05",
+            "kg": "63",
+            "reps": "10x 10x 6x",
+            "note": "Falha técnica nas 3"
+          },
+          {
+            "date": "2026-05-29",
+            "kg": "63",
+            "reps": "10x 8x 6x",
+            "note": ""
+          },
+          {
+            "date": "2026-05-22",
+            "kg": "63",
+            "reps": "10x 6x 6x",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "name": "Cadeira Adutora",
+        "sr": "3×6-8",
+        "obs": "Máquina velha - Falha técnica nas 3",
+        "history": [
+          {
+            "date": "2026-06-05",
+            "kg": "80",
+            "reps": "8x 8x 8x",
+            "note": "Falha técnica nas 3"
+          },
+          {
+            "date": "2026-05-29",
+            "kg": "80",
+            "reps": "8x 8x 8x",
+            "note": ""
+          },
+          {
+            "date": "2026-05-22",
+            "kg": "",
+            "reps": "8x 8x 8x",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "name": "Cadeira Abdutora",
+        "sr": "3×6-8",
+        "obs": "Falha técnica nas 3",
+        "history": [
+          {
+            "date": "2026-06-05",
+            "kg": "120",
+            "reps": "8x 8x 8x",
+            "note": "Falha técnica nas 3"
+          },
+          {
+            "date": "2026-05-29",
+            "kg": "120",
+            "reps": "8x 8x 8x",
+            "note": ""
+          },
+          {
+            "date": "2026-05-22",
+            "kg": "120",
+            "reps": "8x 8x 8x",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  }
+}
