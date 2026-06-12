@@ -291,7 +291,7 @@
     ]
   },
   "upper2": {
-    "date": "2026-06-10",
+    "date": "2026-06-11",
     "exercises": [
       {
         "name": "Remada Apoio de Peito (Hammer)",
@@ -300,28 +300,34 @@
         "history": [
           {
             "date": "2026-06-04",
-            "kg": "107.5",
+            "kg": "118",
             "reps": "9x 9x",
             "note": "Falha técnica na primeira; total segunda."
           },
           {
             "date": "2026-05-28",
-            "kg": "105",
+            "kg": "115",
             "reps": "9x 9x",
             "note": "Falha técnica na primeira; total segunda."
           },
           {
             "date": "2026-05-21",
-            "kg": "105",
+            "kg": "112",
             "reps": "9x 8x",
             "note": "Falha técnica na primeira; total segunda."
+          },
+          {
+            "date": "2026-06-11",
+            "kg": "125",
+            "reps": "8x 8x",
+            "note": "A última eu quase morri."
           }
         ]
       },
       {
         "name": "Remada Unilateral Foco Dorsal",
         "sr": "2×5-9",
-        "obs": "",
+        "obs": "Falha técnica na primeira; total segunda.",
         "history": [
           {
             "date": "2026-06-04",
@@ -340,6 +346,12 @@
             "kg": "74",
             "reps": "9x 9x",
             "note": ""
+          },
+          {
+            "date": "2026-06-11",
+            "kg": "77",
+            "reps": "8x 8x",
+            "note": "Sairam 9x e 8x"
           }
         ]
       },
@@ -371,6 +383,12 @@
             "kg": "45",
             "reps": "6x 5x 4x",
             "note": ""
+          },
+          {
+            "date": "2026-06-11",
+            "kg": "46.25",
+            "reps": "6x 6x 6x ",
+            "note": "Estailizei a carga, posso subir na prox"
           }
         ]
       },
@@ -396,6 +414,12 @@
             "kg": "100",
             "reps": "9x 9x",
             "note": ""
+          },
+          {
+            "date": "2026-06-11",
+            "kg": "107",
+            "reps": "9x 9x ",
+            "note": "Já posso subir a carga."
           }
         ]
       },
@@ -421,6 +445,12 @@
             "kg": "184",
             "reps": "10x 8x",
             "note": ""
+          },
+          {
+            "date": "2026-06-11",
+            "kg": "205",
+            "reps": "10x 10x",
+            "note": ""
           }
         ]
       },
@@ -431,20 +461,26 @@
         "history": [
           {
             "date": "2026-06-04",
-            "kg": "62",
+            "kg": "66",
             "reps": "10x 10x",
             "note": "Falha total na segunda"
           },
           {
             "date": "2026-05-28",
-            "kg": "60",
+            "kg": "65",
             "reps": "10x 10x",
             "note": ""
           },
           {
             "date": "2026-05-21",
-            "kg": "60",
+            "kg": "62",
             "reps": "10x 9x",
+            "note": ""
+          },
+          {
+            "date": "2026-06-11",
+            "kg": "70",
+            "reps": "10x 10x",
             "note": ""
           }
         ]

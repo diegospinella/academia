@@ -720,29 +720,23 @@ function load(){
   });
 }
 
-// Autosave com debounce de 3s — baixa o JSON automaticamente
+// Autosave com debounce — apenas atualiza o indicador, sem download automático
 function triggerSave(){
   var ind = document.getElementById('saveInd');
   if(ind){ind.className='save-indicator saving';ind.innerHTML='&#9679; salvando...';}
   if(saveTimer) clearTimeout(saveTimer);
   saveTimer = setTimeout(function(){
-    exportNow(true);
     if(ind){ind.className='save-indicator saved';ind.innerHTML='&#10003; salvo';}
     setTimeout(function(){if(ind){ind.className='save-indicator';ind.innerHTML='&#9679; salvo';}},2000);
-  }, 20000);
+  }, 800);
 }
 
-function exportNow(silent){
+function exportNow(){
   var b = new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
   var a = document.createElement('a');
   a.href = URL.createObjectURL(b);
   a.download = 'logbook.json';
-  if(!silent){a.click();}
-  else{
-    // autosave silencioso so baixa se o usuario confirmar na primeira vez
-    // na pratica apenas dispara o download
-    a.click();
-  }
+  a.click();
 }
 
 function importData(e){
@@ -916,10 +910,14 @@ function toggleSeries(idx){
 function updHw(ei,h,f,v){data[cur].exercises[ei].history[h][f]=v;triggerSave();setTimeout(renderDashboard,0);}
 function renderHist(hist,ei){
   if(!hist||!hist.length) return '<p class="empty">Nenhum registro ainda.</p>';
-  var order=histOrder[ei]==='desc';
+  // desc = mais recente primeiro (padrão), asc = mais antigo primeiro
+  var isDesc=(histOrder[ei]||'desc')==='desc';
   var idx=[];
   for(var x=0;x<hist.length;x++) idx.push(x);
-  if(order) idx=idx.slice().reverse();
+  idx.sort(function(a,b){
+    var da=hist[a].date||'',db=hist[b].date||'';
+    return isDesc?db.localeCompare(da):da.localeCompare(db);
+  });
   var out='';
   for(var j=0;j<idx.length;j++){
     var h=idx[j],e=hist[h];
@@ -962,7 +960,7 @@ function render(){
       +'<div class="hist-hdr">'
       +'<span class="hist-lbl">Historico</span>'
       +'<button class="btn" style="font-size:10px;padding:2px 8px" id="obtn_'+i+'" onclick="toggleOrder('+i+')">'
-      +((histOrder[i]==='desc')?'&#8595; Mais recente':'&#8593; Mais antigo')+'</button>'
+      +((histOrder[i]||'desc')==='desc'?'&#8595; Mais recente':'&#8593; Mais antigo')+'</button>'
       +'</div>'
       +'<div class="hentries" id="hist_'+i+'">'+renderHist(ex.history,i)+'</div>'
       +'<button class="btn" style="font-size:11px;padding:4px 10px" onclick="addEntry('+i+')">+ Entrada</button>'
@@ -974,7 +972,7 @@ function render(){
 }
 
 function toggleOrder(i){
-  histOrder[i]=(histOrder[i]==='desc')?'asc':'desc';
+  histOrder[i]=((histOrder[i]||'desc')==='desc')?'asc':'desc';
   document.getElementById('hist_'+i).innerHTML=renderHist(data[cur].exercises[i].history,i);
   document.getElementById('obtn_'+i).innerHTML=(histOrder[i]==='desc')?'&#8595; Mais recente':'&#8593; Mais antigo';
 }
