@@ -1127,7 +1127,8 @@ function renderHist(hist,ei){
 var histOrder={};
 function render(){
   var s=data[cur];
-  document.getElementById('dateInput').value=s.date;
+  data[cur].date = today();
+  document.getElementById('dateInput').value=data[cur].date;
   var exs=s.exercises,out='';
   for(var i=0;i<exs.length;i++){
     var ex=exs[i],open=(openEx===i);
