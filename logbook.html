@@ -112,7 +112,7 @@ input[type=date]:focus{outline:none;border-color:#7c5cfc}
 
 <div class="lock-screen" id="lockScreen">
   <div class="lock-box">
-    <div class="lock-logo">log<b>book</b></div>
+    <div class="lock-logo">log<b>book</b> <span style="font-weight:400;font-size:15px;color:#6b5e8a">Diego Spinella</span></div>
     <div class="lock-sub">Digite a senha para continuar</div>
     <input class="lock-input" type="password" id="lockInput" placeholder="••••••••" onkeydown="if(event.key==='Enter')checkLock()">
     <button class="lock-btn" onclick="checkLock()">Entrar</button>
@@ -123,15 +123,13 @@ input[type=date]:focus{outline:none;border-color:#7c5cfc}
 
 <div class="hdr">
   <div>
-    <div class="logo">log<b>book</b></div>
+    <div class="logo">log<b>book</b> <span style="font-weight:400;font-size:15px;color:#6b5e8a">Diego Spinella</span></div>
     <div class="sub">Upper / Lower · 4x semana</div>
   </div>
   <div class="hdr-btns">
     <span class="save-indicator" id="saveInd">● carregando...</span>
     <button class="btn" id="btnConfig" onclick="openConfig()">⚙ Gist</button>
-    <button class="btn" onclick="exportNow()">↓ Exportar</button>
-    <button class="btn" onclick="document.getElementById(&#39;imp&#39;).click()">↑ Importar</button>
-    <input type="file" id="imp" accept=".json" style="display:none" onchange="importData(event)">
+
   </div>
 </div>
 
