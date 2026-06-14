@@ -95,9 +95,31 @@ input[type=date]:focus{outline:none;border-color:#7c5cfc}
 .modal .fg input{width:100%;background:#0f0e14;border:1px solid #2e2650;border-radius:8px;color:#e8e3f5;font-size:13px;padding:7px 10px;font-family:inherit;}
 .modal .fg input:focus{outline:none;border-color:#7c5cfc;}
 .modal-btns{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;}
+
+/* Tela de senha */
+.lock-screen{position:fixed;inset:0;background:#0f0e14;z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px}
+.lock-box{background:#17151f;border:1px solid #2e2650;border-radius:16px;padding:28px 24px;width:90%;max-width:320px;display:flex;flex-direction:column;gap:14px}
+.lock-logo{font-size:22px;font-weight:600;color:#e8e3f5;text-align:center}.lock-logo b{color:#9b7ffe}
+.lock-sub{font-size:12px;color:#6b5e8a;text-align:center}
+.lock-input{background:#0f0e14;border:1px solid #2e2650;border-radius:10px;color:#e8e3f5;font-size:16px;padding:10px 14px;font-family:inherit;width:100%;text-align:center;letter-spacing:2px}
+.lock-input:focus{outline:none;border-color:#7c5cfc}
+.lock-btn{padding:10px;border-radius:10px;background:#2a1f5c;border:1px solid #7c5cfc;color:#c4b0ff;font-size:14px;font-weight:600;cursor:pointer;width:100%}
+.lock-btn:hover{background:#3d2f80;color:#fff}
+.lock-err{font-size:12px;color:#f87171;text-align:center;min-height:16px}
 </style>
 </head>
 <body>
+
+<div class="lock-screen" id="lockScreen">
+  <div class="lock-box">
+    <div class="lock-logo">log<b>book</b></div>
+    <div class="lock-sub">Digite a senha para continuar</div>
+    <input class="lock-input" type="password" id="lockInput" placeholder="••••••••" onkeydown="if(event.key==='Enter')checkLock()">
+    <button class="lock-btn" onclick="checkLock()">Entrar</button>
+    <div class="lock-err" id="lockErr"></div>
+  </div>
+</div>
+
 
 <div class="hdr">
   <div>
@@ -1183,7 +1205,45 @@ function switchTab(s,el){
   el.classList.add('on');cur=s;openEx=null;hiddenSeries={};render();
 }
 
-load();render();
+
+/* ---- LOCK ---- */
+var LOCK_HASH = '7d36a431';
+
+function strHash(str){
+  // hash simples djb2
+  var hash = 5381;
+  for(var i=0;i<str.length;i++){
+    hash = ((hash<<5)+hash)+str.charCodeAt(i);
+    hash = hash & hash;
+  }
+  return Math.abs(hash).toString(16);
+}
+
+function checkLock(){
+  var val = document.getElementById('lockInput').value;
+  var stored = localStorage.getItem('lb_lock');
+  if(stored === 'ok' || strHash(val) === LOCK_HASH){
+    localStorage.setItem('lb_lock','ok');
+    document.getElementById('lockScreen').style.display='none';
+    if(stored !== 'ok') { load(); render(); }
+  } else {
+    var err = document.getElementById('lockErr');
+    err.textContent = 'Senha incorreta.';
+    document.getElementById('lockInput').value='';
+    setTimeout(function(){err.textContent='';},2000);
+  }
+}
+
+function initLock(){
+  if(localStorage.getItem('lb_lock')==='ok'){
+    document.getElementById('lockScreen').style.display='none';
+    return false; // não está lockado
+  }
+  return true; // está lockado, não chama load/render ainda
+}
+
+var locked = initLock();
+if(!locked){ load(); render(); }
 </script>
 
 </body></html>
