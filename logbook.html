@@ -77,6 +77,16 @@ input[type=date]:focus{outline:none;border-color:#7c5cfc}
 .he-del:hover{color:#f87171}
 .empty{font-size:12px;color:#6b5e8a;padding:4px 0}
 .footer{display:flex;gap:6px;margin-top:14px;flex-wrap:wrap;align-items:center}
+
+/* Modal config */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:1000;display:flex;align-items:center;justify-content:center;}
+.modal{background:#17151f;border:1px solid #4a3d80;border-radius:14px;padding:20px;width:90%;max-width:380px;}
+.modal h3{font-size:15px;color:#e8e3f5;margin-bottom:14px;}
+.modal .fg{margin-bottom:12px;}
+.modal .fg label{display:block;font-size:11px;color:#6b5e8a;text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px;}
+.modal .fg input{width:100%;background:#0f0e14;border:1px solid #2e2650;border-radius:8px;color:#e8e3f5;font-size:13px;padding:7px 10px;font-family:inherit;}
+.modal .fg input:focus{outline:none;border-color:#7c5cfc;}
+.modal-btns{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;}
 </style>
 </head>
 <body>
@@ -87,7 +97,8 @@ input[type=date]:focus{outline:none;border-color:#7c5cfc}
     <div class="sub">Upper / Lower · 4x semana</div>
   </div>
   <div class="hdr-btns">
-    <span class="save-indicator" id="saveInd">● salvo</span>
+    <span class="save-indicator" id="saveInd">● carregando...</span>
+    <button class="btn" id="btnConfig" onclick="openConfig()">⚙ Gist</button>
     <button class="btn" onclick="exportNow()">↓ Exportar</button>
     <button class="btn" onclick="document.getElementById(&#39;imp&#39;).click()">↑ Importar</button>
     <input type="file" id="imp" accept=".json" style="display:none" onchange="importData(event)">
@@ -708,27 +719,120 @@ var SEED = {
 
 var data = {}, cur = 'upper1', openEx = null, hiddenSeries = {};
 var saveTimer = null;
+var GIST_ID = '', GIST_TOKEN = '', GIST_FILENAME = 'logbook.json';
 
 function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 function today(){return new Date().toISOString().slice(0,10);}
 function fmtD(d){if(!d)return'';var p=d.split('-');return p[2]+'/'+p[1];}
 
-function load(){
-  ['upper1','lower1','upper2','lower2'].forEach(function(s){
-    data[s] = JSON.parse(JSON.stringify(SEED[s]));
-    if(!data[s].date) data[s].date = today();
+/* ---- CONFIG GIST ---- */
+function loadConfig(){
+  GIST_ID    = localStorage.getItem('lb_gist_id')    || '';
+  GIST_TOKEN = localStorage.getItem('lb_gist_token') || '';
+}
+function saveConfig(id, token){
+  GIST_ID = id; GIST_TOKEN = token;
+  localStorage.setItem('lb_gist_id',    id);
+  localStorage.setItem('lb_gist_token', token);
+}
+function openConfig(){
+  var curId  = GIST_ID  || 'nao configurado';
+  var curTok = GIST_TOKEN ? GIST_TOKEN.slice(0,8)+'...' : 'nao configurado';
+  var id  = prompt('Gist ID (atual: ' + curId + ')', GIST_ID);
+  if(id === null) return;
+  var tok = prompt('GitHub Token ghp_... (atual: ' + curTok + ')', GIST_TOKEN);
+  if(tok === null) return;
+  saveConfig(id.trim(), tok.trim());
+  alert('Configurado! Recarregando...');
+  loadFromGist();
+}
+
+/* ---- GIST SYNC ---- */
+function setInd(cls, txt){
+  var ind = document.getElementById('saveInd');
+  if(ind){ind.className='save-indicator '+cls;ind.innerHTML=txt;}
+}
+
+function loadFromGist(){
+  loadConfig();
+  if(!GIST_ID || !GIST_TOKEN){
+    // Fallback para SEED se não tiver Gist configurado
+    ['upper1','lower1','upper2','lower2'].forEach(function(s){
+      data[s] = JSON.parse(JSON.stringify(SEED[s]));
+      if(!data[s].date) data[s].date = today();
+    });
+    setInd('', '● local (sem Gist)');
+    render();
+    return;
+  }
+  setInd('saving', '⟳ carregando...');
+  fetch('https://api.github.com/gists/' + GIST_ID, {
+    headers: {
+      'Authorization': 'Bearer ' + GIST_TOKEN,
+      'Accept': 'application/vnd.github+json'
+    }
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(json){
+    if(!json.files || !json.files[GIST_FILENAME]) throw new Error('Arquivo não encontrado no Gist');
+    var raw = json.files[GIST_FILENAME].content;
+    var parsed = JSON.parse(raw);
+    ['upper1','lower1','upper2','lower2'].forEach(function(s){
+      data[s] = parsed[s] ? parsed[s] : JSON.parse(JSON.stringify(SEED[s]));
+      if(!data[s].date) data[s].date = today();
+    });
+    setInd('saved', '✓ sincronizado');
+    setTimeout(function(){setInd('','● salvo');},2000);
+    openEx = null; hiddenSeries = {};
+    render();
+  })
+  .catch(function(err){
+    console.error('Erro ao carregar Gist:', err);
+    setInd('', '⚠ erro Gist');
+    // Fallback para SEED
+    ['upper1','lower1','upper2','lower2'].forEach(function(s){
+      data[s] = JSON.parse(JSON.stringify(SEED[s]));
+      if(!data[s].date) data[s].date = today();
+    });
+    render();
   });
 }
 
-// Autosave com debounce — apenas atualiza o indicador, sem download automático
+function load(){ loadFromGist(); }
+
+/* ---- AUTOSAVE para Gist ---- */
 function triggerSave(){
-  var ind = document.getElementById('saveInd');
-  if(ind){ind.className='save-indicator saving';ind.innerHTML='&#9679; salvando...';}
+  setInd('saving','● salvando...');
   if(saveTimer) clearTimeout(saveTimer);
-  saveTimer = setTimeout(function(){
-    if(ind){ind.className='save-indicator saved';ind.innerHTML='&#10003; salvo';}
-    setTimeout(function(){if(ind){ind.className='save-indicator';ind.innerHTML='&#9679; salvo';}},2000);
-  }, 800);
+  saveTimer = setTimeout(function(){ pushToGist(); }, 1200);
+}
+
+function pushToGist(){
+  if(!GIST_ID || !GIST_TOKEN){
+    setInd('saved','✓ salvo (local)');
+    setTimeout(function(){setInd('','● salvo');},2000);
+    return;
+  }
+  var files = {}; files[GIST_FILENAME] = { content: JSON.stringify(data,null,2) };
+  var body = JSON.stringify({ files: files });
+  fetch('https://api.github.com/gists/' + GIST_ID, {
+    method: 'PATCH',
+    headers: {
+      'Authorization': 'Bearer ' + GIST_TOKEN,
+      'Accept': 'application/vnd.github+json',
+      'Content-Type': 'application/json'
+    },
+    body: body
+  })
+  .then(function(r){
+    if(!r.ok) throw new Error('HTTP ' + r.status);
+    setInd('saved','✓ salvo no Gist');
+    setTimeout(function(){setInd('','● salvo');},2000);
+  })
+  .catch(function(err){
+    console.error('Erro ao salvar Gist:', err);
+    setInd('','⚠ erro ao salvar');
+  });
 }
 
 function exportNow(){
@@ -751,7 +855,8 @@ function importData(e){
       });
       openEx = null; hiddenSeries = {};
       render();
-      alert('Importado!');
+      triggerSave();
+      alert('Importado e salvo no Gist!');
     }catch(err){alert('Arquivo invalido.');}
   };
   r.readAsText(f);
